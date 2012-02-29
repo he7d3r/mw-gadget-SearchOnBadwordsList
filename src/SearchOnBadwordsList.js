@@ -50,13 +50,10 @@ var findRegexMatching = function ( text ) {
 				data[i] + '</code><br>detectou a expressão "<code>' + text + '</code>".';
 		}
 	}
-	//new RegExp(s);
-	//badWords.test( 'aslkjasd')
-	window.badWords = '(' + reg.repeatedChar +
-		(string.length? '|' + reg.strings.replace('<LIST>', string.join('|') ) : '') +
-		(phrase.length? '|' + reg.phrases.replace('<LIST>', phrase.join('|') ) : '') +
-		')';
-	window.badWords = RegExp( window.badWords, 'gi');
+	regex = new RegExp( repeatedChar );
+	if( regex.test( text ) ){
+		return 'A regex<br><code>' + regex + '</code><br>definida no código-fonte do script detectou a expressão "<code>' + text + '</code>".';
+	}
 };
 var addLink = function(){
 	$( mw.util.addPortletLink(
