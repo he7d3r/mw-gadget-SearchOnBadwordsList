@@ -36,7 +36,7 @@ var findRegexMatching = function ( text ) {
 			catch (err) {
 				jsMsg(
 					'Aviso: a linha '+i+' da lista de palavrões foi ignorada' +
-					' pois continha uma expressão regular estranha:<pre>' + s + '</pre>'
+					' pois continha uma expressão regular estranha:<pre>' + mw.html.escape(s) + '</pre>'
 				);
 				continue;
 			}
@@ -47,14 +47,14 @@ var findRegexMatching = function ( text ) {
 		}
 		if( regex.test( text ) ){
 			return 'A regex<br><code>' + regex + '</code><br>construída a partir da linha que contém<br><code>' +
-				data[i] + '</code><br>detectou a expressão "<code>' + text + '</code>".';
+				data[i] + '</code><br>detectou a expressão "<code>' + mw.html.escape(text) + '</code>".';
 		}
 	}
 	regex = new RegExp( '(' + reg.repeatedChar + ')', 'gi');
 	if( regex.test( text ) ){
-		return 'A regex<br><code>' + regex + '</code><br>definida no código-fonte do script detectou a expressão "<code>' + text + '</code>".';
+		return 'A regex<br><code>' + regex + '</code><br>definida no código-fonte do script detectou a expressão "<code>' + mw.html.escape(text) + '</code>".';
 	} else {
-		return 'A expressão "<code>' + text + '</code>" não foi detectada.';
+		return 'A expressão "<code>' + mw.html.escape(text) + '</code>" não foi detectada.';
 	}
 };
 var addLink = function(){
