@@ -50,7 +50,7 @@ var findRegexMatching = function ( text ) {
 				data[i] + '</code><br>detectou a expressão "<code>' + text + '</code>".';
 		}
 	}
-	regex = new RegExp( reg.repeatedChar );
+	regex = new RegExp( '(' + reg.repeatedChar + ')' );
 	if( regex.test( text ) ){
 		return 'A regex<br><code>' + regex + '</code><br>definida no código-fonte do script detectou a expressão "<code>' + text + '</code>".';
 	} else {
