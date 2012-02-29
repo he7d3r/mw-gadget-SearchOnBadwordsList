@@ -40,17 +40,17 @@ var findRegexMatching = function ( text ) {
 				);
 				continue;
 			}
-			regex = new RegExp( ( isPhrase? reg.phrases : reg.strings ).replace('<LIST>', s ) );
+			regex = new RegExp( ( isPhrase? reg.phrases : reg.strings ).replace('<LIST>', s ), 'gi');
 		} else {
 			// treat this line as a non-regexp and escape it.
-			regex = new RegExp( reg.phrases.replace('<LIST>', $.escapeRE(s) ) );
+			regex = new RegExp( reg.phrases.replace('<LIST>', $.escapeRE(s) ), 'gi');
 		}
 		if( regex.test( text ) ){
 			return 'A regex<br><code>' + regex + '</code><br>construída a partir da linha que contém<br><code>' +
 				data[i] + '</code><br>detectou a expressão "<code>' + text + '</code>".';
 		}
 	}
-	regex = new RegExp( '(' + reg.repeatedChar + ')' );
+	regex = new RegExp( '(' + reg.repeatedChar + ')', 'gi');
 	if( regex.test( text ) ){
 		return 'A regex<br><code>' + regex + '</code><br>definida no código-fonte do script detectou a expressão "<code>' + text + '</code>".';
 	} else {
