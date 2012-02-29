@@ -46,8 +46,8 @@ var findRegexMatching = function ( text ) {
 			regex = new RegExp( reg.phrases.replace('<LIST>', $.escapeRE(s) ) );
 		}
 		if( regex.test( text ) ){
-			return 'A regex "' + regex + '" construída a partir da linha que contém "' +
-				data[i] + '" detectou a expressão "' + text + '".';
+			return 'A regex\n' + regex + '\nconstruída a partir da linha que contém\n' +
+				data[i] + '\ndetectou a expressão "' + text + '".';
 		}
 	}
 	//new RegExp(s);
