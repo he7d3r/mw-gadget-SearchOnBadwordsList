@@ -46,8 +46,8 @@ var findRegexMatching = function ( text ) {
 			regex = new RegExp( reg.phrases.replace('<LIST>', $.escapeRE(s) ) );
 		}
 		if( regex.test( text ) ){
-			return 'A regex\n' + regex + '\nconstruída a partir da linha que contém\n' +
-				data[i] + '\ndetectou a expressão "' + text + '".';
+			return 'A regex<br><code>' + regex + '</code><br>construída a partir da linha que contém<br><code>' +
+				data[i] + '</code><br>detectou a expressão "<code>' + text + '</code>".';
 		}
 	}
 	//new RegExp(s);
@@ -69,7 +69,7 @@ var addLink = function(){
 		e.preventDefault(); // prevent '#' from appearing in URL bar
 		var expr = prompt( 'Deseja encontrar a expressão regular que detecta qual expressão?', 'Texto de exemplo' );
 		if( expr ){
-			alert( findRegexMatching( expr ) );
+			jsMsg( findRegexMatching( expr ) );
 		}
 	} );
 };
