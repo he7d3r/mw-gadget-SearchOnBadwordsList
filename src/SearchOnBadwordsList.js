@@ -34,7 +34,7 @@ var findRegexMatching = function ( text ) {
 			// check that s represents a valid regexp
 			try { var r=new RegExp(s); }
 			catch (err) {
-				jsMsg(
+				mw.notify(
 					'Aviso: a linha '+i+' da lista de palavrões foi ignorada' +
 					' pois continha uma expressão regular estranha:<pre>' + mw.html.escape(s) + '</pre>'
 				);
@@ -68,7 +68,7 @@ var addLink = function(){
 		e.preventDefault(); // prevent '#' from appearing in URL bar
 		var expr = prompt( 'Deseja encontrar a expressão regular que detecta qual expressão?', 'Texto de exemplo' );
 		if( expr ){
-			jsMsg( findRegexMatching( expr ) );
+			mw.notify( findRegexMatching( expr ), { autoHide: false } );
 		}
 	} );
 };
