@@ -4,7 +4,6 @@
  * @source: based on function processBadWords from [[w:pt:MediaWiki:Gadget-antivandaltool.js]]
  * @author: Helder (https://github.com/he7d3r)
  * @license: CC BY-SA 3.0 <https://creativecommons.org/licenses/by-sa/3.0/>
- * @tracking: [[Special:GlobalUsage/User:Helder.wiki/Tools/SearchOnBadwordsList.js]] ([[File:User:Helder.wiki/Tools/SearchOnBadwordsList.js]])
  */
 /*jslint browser: true, white: true, plusplus: true, regexp: true, devel: true, continue: true */
 /*global jQuery, mediaWiki */
