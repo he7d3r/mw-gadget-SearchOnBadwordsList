@@ -46,7 +46,7 @@
 				regex = new RegExp( ( isPhrase ? reg.phrases : reg.strings ).replace('<LIST>', s ), 'gi');
 			} else {
 				// treat this line as a non-regexp and escape it.
-				regex = new RegExp( reg.phrases.replace('<LIST>', $.escapeRE(s) ), 'gi');
+				regex = new RegExp( reg.phrases.replace('<LIST>', mw.RegExp.escape(s) ), 'gi');
 			}
 			if ( regex.test( text ) ) {
 				return 'A regex<br><code>' + regex + '</code><br>construída a partir da linha que contém<br><code>' +
@@ -76,7 +76,10 @@
 	};
 
 	if ( mw.config.get('wgPageName') === 'Wikipédia:Software/Anti-vandal_tool/badwords' && $.inArray(mw.config.get('wgAction'), [ 'edit', 'submit' ]) !== -1 ) {
-		$(addLink);
+		$.when(
+			mw.loader.using( [ 'mediawiki.notify', 'mediawiki.RegExp' ] ),
+			$.ready
+		).then( addLink );
 	}
 
 }( mediaWiki, jQuery ) );
