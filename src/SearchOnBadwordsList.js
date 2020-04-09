@@ -77,7 +77,7 @@
 
 	if ( mw.config.get('wgPageName') === 'Wikipédia:Software/Anti-vandal_tool/badwords' && $.inArray(mw.config.get('wgAction'), [ 'edit', 'submit' ]) !== -1 ) {
 		$.when(
-			mw.loader.using( [ 'mediawiki.notify', 'mediawiki.util' ] ),
+			mw.loader.using( [ 'mediawiki.util' ] ),
 			$.ready
 		).then( addLink );
 	}
